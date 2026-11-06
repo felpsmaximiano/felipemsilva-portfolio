@@ -1,0 +1,83 @@
+.stack-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.stack-matrix__cell {
+  min-width: 0;
+  padding: 22px 20px 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.3s;
+}
+.stack-matrix__cell:hover {
+  background: var(--panel);
+}
+.stack-matrix__cell h4 {
+  margin: 0 0 4px;
+  font: 800 18px var(--font-body);
+}
+.stack-matrix__kicker {
+  margin-bottom: 16px;
+  color: var(--dim);
+}
+
+.stack-matrix__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.stack-matrix__chips li {
+  padding: 6px 9px;
+  border: 1px solid var(--line-2);
+  color: #cdd2e6;
+  font: 600 12px var(--font-mono);
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+.stack-matrix__chips li:hover {
+  border-color: var(--cobalt-hi);
+  background: var(--cobalt-soft);
+  color: #fff;
+}
+
+.stack-languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 28px;
+}
+.stack-languages > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+.stack-languages__meter {
+  display: flex;
+  gap: 4px;
+}
+.stack-languages__meter i {
+  width: 26px;
+  height: 6px;
+  background: var(--line-2);
+}
+.stack-languages__meter i.is-on {
+  background: var(--cobalt-hi);
+}
+
+@media (max-width: 1000px) {
+  .stack-matrix {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .stack-matrix {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

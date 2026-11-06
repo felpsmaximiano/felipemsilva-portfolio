@@ -1,0 +1,42 @@
+/*
+ * Tokens de design.
+ * Conceito: um editor de design (grade de pontos, caixas de seleção, guias)
+ * em que o próprio site vai sendo montado. Fundo escuro e azul cobalto.
+ */
+:root {
+  color-scheme: dark;
+
+  /* cores */
+  --bg: #07080d;
+  --panel: #0d0f17;
+  --panel-2: #12152a;
+  --line: #1d2135;
+  --line-2: #2a3050;
+  --fg: #e9ebf3;
+  --fg-soft: #c9cde0;
+  --muted: #8a90a8;
+  --dim: #5b6180;
+  --cobalt: #2340e0;
+  --cobalt-dark: #1b33bd;
+  --cobalt-hi: #5b74ff;
+  --cobalt-soft: rgba(35, 64, 224, 0.16);
+  --ok: #36d39a;
+
+  /* cores do "editor" (interface de design por cima da página) */
+  --editor-select: #0d99ff;
+  --editor-guide: #f24822;
+  --editor-panel: #1e1e1e;
+  --editor-panel-line: #383838;
+
+  /* tipografia */
+  --font-display: 'Anton', 'Oswald', Impact, sans-serif;
+  --font-body: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-hand: 'Caveat', 'Segoe Script', cursive;
+
+  /* layout */
+  --max-width: 1240px;
+  --gutter-left: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-right: max(16px, env(safe-area-inset-right, 0px));
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

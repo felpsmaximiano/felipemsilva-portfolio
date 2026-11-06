@@ -1,0 +1,97 @@
+.contact {
+  padding-block: 110px 70px;
+  text-align: center;
+}
+
+.contact__eyebrow {
+  margin-bottom: 16px;
+  color: var(--cobalt-hi);
+}
+.contact__title {
+  font-size: clamp(46px, 7vw, 96px);
+}
+.contact__subtitle {
+  max-width: 62ch;
+  margin: 16px auto 34px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.contact__email {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 100%;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+}
+.contact__email code {
+  padding: 16px 20px;
+  color: #fff;
+  font: 600 clamp(14px, 2.2vw, 18px) var(--font-mono);
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+.contact__email button {
+  min-height: 52px;
+  padding: 0 20px;
+  border: 0;
+  background: var(--cobalt);
+  color: #fff;
+  font: 600 12px var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.contact__email button:hover {
+  background: var(--cobalt-dark);
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+.contact__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  border: 1px solid var(--line-2);
+  color: #cdd2e6;
+  font: 600 12px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+.contact__links a:hover {
+  border-color: var(--cobalt-hi);
+  color: #fff;
+}
+.contact__links svg {
+  width: 17px;
+  height: 17px;
+}
+
+.contact__availability {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.contact__availability li {
+  padding: 6px 10px;
+  border: 1px dashed var(--line-2);
+  color: var(--muted);
+  font: 600 11px var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

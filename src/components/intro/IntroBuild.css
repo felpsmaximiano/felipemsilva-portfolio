@@ -1,0 +1,114 @@
+/* --- elementos da página durante a abertura --------------------------------- */
+
+/* enquanto a abertura roda, quem participa dela fica escondido até ser revelado */
+html.is-intro [data-intro]:not([data-intro-state]) {
+  opacity: 0;
+}
+
+/* "desenhado" da esquerda para a direita dentro da caixa (margem negativa para não cortar sombras e rótulos) */
+[data-intro-state='wipe'] {
+  animation: intro-wipe 0.6s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+[data-intro-state='fade'] {
+  animation: intro-fade 0.55s ease both;
+}
+
+@keyframes intro-wipe {
+  from {
+    clip-path: inset(-60px 100% -60px -60px);
+  }
+  to {
+    clip-path: inset(-60px -60px -60px -60px);
+  }
+}
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* --- camada da abertura ----------------------------------------------------- */
+
+/* transparente: a página de verdade aparece por baixo, peça por peça */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s;
+}
+.intro.is-done {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro__box {
+  position: absolute;
+  transform-origin: center;
+  background: rgba(91, 116, 255, 0.14);
+  transition:
+    left 0.72s cubic-bezier(0.7, 0, 0.2, 1),
+    top 0.72s cubic-bezier(0.7, 0, 0.2, 1),
+    width 0.72s cubic-bezier(0.7, 0, 0.2, 1),
+    height 0.72s cubic-bezier(0.7, 0, 0.2, 1),
+    transform 0.72s cubic-bezier(0.7, 0, 0.2, 1),
+    opacity 0.35s ease,
+    background-color 0.45s ease;
+}
+.intro__box.is-waiting {
+  opacity: 0;
+}
+.intro__box.is-landed {
+  background-color: transparent;
+}
+.intro__box.is-gone {
+  opacity: 0;
+  background-color: transparent;
+}
+.intro__selection {
+  inset: 0;
+}
+
+/* log no canto direito, acima do botão de pular, para não cobrir os botões do topo */
+.intro__log {
+  position: absolute;
+  right: var(--gutter-right);
+  bottom: calc(62px + env(safe-area-inset-bottom, 0px));
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: rgba(7, 8, 13, 0.85);
+  text-align: right;
+  color: var(--muted);
+  font: 600 11.5px/1.9 var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.intro__log .is-ok {
+  color: var(--ok);
+}
+
+.intro__skip {
+  position: absolute;
+  right: var(--gutter-right);
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  padding: 8px 12px;
+  border: 1px solid var(--line-2);
+  background: var(--bg);
+  color: var(--muted);
+  font: 600 11px var(--font-mono);
+  letter-spacing: 0.12em;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}

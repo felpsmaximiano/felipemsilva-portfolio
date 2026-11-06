@@ -1,0 +1,13 @@
+.typed-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin: 0 1px;
+  vertical-align: -2px;
+  background: var(--editor-select);
+  animation: blink 1s steps(1) infinite;
+}
+
+.typed-ghost {
+  visibility: hidden;
+}

@@ -1,0 +1,36 @@
+.portfolio-title {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 28px;
+  overflow: visible;
+}
+.portfolio-title text {
+  fill: transparent;
+  font-family: var(--font-display);
+  font-size: 250px;
+  letter-spacing: 4px;
+}
+
+/* contorno: desenhado com stroke-dashoffset */
+.portfolio-title__stroke {
+  stroke: var(--cobalt-hi);
+  stroke-width: 2.2;
+  stroke-dasharray: 5200;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.portfolio-title.is-waiting .portfolio-title__stroke {
+  stroke-dashoffset: 5200;
+}
+
+/* preenchimento translúcido que passa da esquerda para a direita */
+.portfolio-title .portfolio-title__fill {
+  fill: var(--cobalt);
+  opacity: 0.22;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.6, 0, 0.2, 1) 0.9s;
+}
+.portfolio-title.is-waiting .portfolio-title__fill {
+  clip-path: inset(0 100% 0 0);
+}

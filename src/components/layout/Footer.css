@@ -1,0 +1,11 @@
+.footer {
+  padding-block: 22px calc(84px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--dim);
+}

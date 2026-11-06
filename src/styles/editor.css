@@ -1,0 +1,164 @@
+/* Camada do "editor": cursor, seleção, guias e painel de cor (criados por lib/editor-session). */
+.editor-layer {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 0;
+  height: 0;
+  z-index: 95;
+  pointer-events: none;
+}
+
+.editor-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  will-change: transform;
+}
+.editor-cursor.is-visible {
+  opacity: 1;
+}
+.editor-cursor svg {
+  display: block;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+  transform-origin: 2px 2px;
+  transition: transform 0.12s;
+}
+.editor-cursor.is-pressed svg {
+  transform: scale(0.82);
+}
+.editor-cursor span {
+  position: absolute;
+  left: 15px;
+  top: 19px;
+  padding: 3px 8px;
+  border-radius: 0 9px 9px 9px;
+  background: var(--cobalt);
+  color: #fff;
+  font: 700 11.5px var(--font-body);
+  white-space: nowrap;
+}
+
+.editor-selection {
+  position: absolute;
+  display: none;
+  border: 1.5px solid var(--editor-select);
+}
+.editor-selection.is-visible {
+  display: block;
+}
+.editor-selection.is-text {
+  border-style: dashed;
+}
+.editor-selection b {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border: 1.5px solid var(--editor-select);
+}
+.editor-selection b:nth-child(1) { left: -5px; top: -5px; }
+.editor-selection b:nth-child(2) { right: -5px; top: -5px; }
+.editor-selection b:nth-child(3) { left: -5px; bottom: -5px; }
+.editor-selection b:nth-child(4) { right: -5px; bottom: -5px; }
+.editor-selection em {
+  position: absolute;
+  left: -1.5px;
+  top: -21px;
+  color: var(--editor-select);
+  font: 600 10.5px var(--font-body);
+  font-style: normal;
+  white-space: nowrap;
+}
+.editor-selection i {
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--editor-select);
+  color: #fff;
+  font: 600 10.5px var(--font-body);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.editor-guide {
+  position: absolute;
+  background: var(--editor-guide);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.editor-guide.is-visible {
+  opacity: 1;
+}
+.editor-guide em {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: var(--editor-guide);
+  color: #fff;
+  font: 600 10px var(--font-body);
+  font-style: normal;
+  white-space: nowrap;
+}
+.editor-guide.is-horizontal em {
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+}
+
+.editor-fill {
+  position: absolute;
+  display: none;
+  width: 190px;
+  padding: 10px;
+  border: 1px solid var(--editor-panel-line);
+  border-radius: 8px;
+  background: var(--editor-panel);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  color: #e6e6e6;
+  font: 600 11px var(--font-body);
+}
+.editor-fill.is-visible {
+  display: block;
+}
+.editor-fill__head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #9a9a9a;
+}
+.editor-fill__swatches {
+  display: flex;
+  gap: 7px;
+}
+.editor-fill__swatches i {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+.editor-fill__swatches i.is-picked {
+  outline: 2px solid var(--editor-select);
+  outline-offset: 1px;
+}
+.editor-fill__hex {
+  margin-top: 9px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: #2c2c2c;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editor-layer {
+    display: none;
+  }
+}

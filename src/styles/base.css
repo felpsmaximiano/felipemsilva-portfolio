@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* clip (não hidden) evita rolagem lateral sem quebrar o menu sticky */
+  overflow-x: clip;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.055) 1px, transparent 0);
+  background-size: 28px 28px;
+  color: var(--fg);
+  font: 500 16px/1.65 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--cobalt);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cobalt-hi);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--gutter-left);
+  padding-right: var(--gutter-right);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--cobalt-hi);
+}
+
+/* revelar ao rolar (controlado por useReveal) */
+[data-reveal] {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s var(--ease-out);
+}
+[data-reveal='hidden'] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
