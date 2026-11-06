@@ -1,12 +1,12 @@
 # Portfólio · Felipe Maximiano
 
-Portfólio pessoal, desenvolvedor full stack e analista de sistemas.
+Portfólio pessoal de **Flavio Felipe Maximiano da Silva**, desenvolvedor full stack e analista de sistemas.
 
 A página abre como uma tela de editor de design: as partes do site são montadas, e logo depois um cursor
 com meu nome arruma o que ficou fora do lugar, troca uma cor, digita o texto de apresentação e publica as
 alterações. Conforme você rola, outros ajustes acontecem nas seções.
 
-**Stack:** React 18 · TypeScript (strict) · Vite · CSS puro com tokens · ESLint · Prettier · GitHub Actions
+**Stack:** React 18 · TypeScript (strict) · Vite · CSS puro com tokens · ESLint · Prettier · GitHub Actions · Cloudflare Workers
 
 ## Como rodar
 
@@ -25,7 +25,7 @@ Outros scripts: `npm run lint`, `npm run typecheck`, `npm run format`.
 
 ```
 .
-├── .github/workflows/deploy.yml   # CI: lint + tipos + build + deploy no GitHub Pages
+├── .github/workflows/ci.yml       # CI: lint + checagem de tipos + build
 ├── public/
 │   ├── favicon.svg
 │   └── images/                    # fotos (servidas como estão)
@@ -60,6 +60,7 @@ Outros scripts: `npm run lint`, `npm run typecheck`, `npm run format`.
 │   └── styles/                    # tokens, base e camada do editor
 ├── index.html
 ├── vite.config.ts
+├── wrangler.jsonc                 # deploy no Cloudflare
 ├── tsconfig*.json
 └── eslint.config.js
 ```
@@ -87,13 +88,14 @@ Cada componente fica ao lado do seu CSS (`Hero.tsx` + `Hero.css`).
 
 ## Deploy
 
-O workflow em `.github/workflows/deploy.yml` publica no GitHub Pages a cada push na `main`:
+Publicado no **Cloudflare Workers** (conectado ao repositório do GitHub). O arquivo `wrangler.jsonc`
+diz ao Cloudflare para rodar `npm run build` e publicar a pasta `dist/` como site estático; cada push na
+`main` gera um novo deploy. Para publicar manualmente: `npx wrangler deploy`.
 
-1. Rode `npm install` uma vez e faça commit do `package-lock.json` (o CI usa `npm ci`).
-2. No repositório: **Settings → Pages → Source: GitHub Actions**.
+O workflow `.github/workflows/ci.yml` roda lint, checagem de tipos e build em cada push e pull request.
 
 Como o build usa caminhos relativos (`base: './'`), a pasta `dist/` também funciona na Vercel, no
-Cloudflare Pages ou em qualquer hospedagem estática.
+GitHub Pages ou em qualquer hospedagem estática.
 
 ## Contato
 

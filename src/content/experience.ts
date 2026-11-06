@@ -1,4 +1,4 @@
-import type { TimelineItem } from './types';
+import type { Localized, TimelineItem } from './types';
 
 /** Linha do tempo, do mais recente para o mais antigo. */
 export const timeline: TimelineItem[] = [
@@ -45,7 +45,7 @@ export const timeline: TimelineItem[] = [
   },
 ];
 
-export const principles = [
+export const principles: { key: Localized<string>; text: Localized<string> }[] = [
   {
     key: { pt: 'processo', en: 'process' },
     text: {
@@ -67,4 +67,4 @@ export const principles = [
       en: 'Screens that explain themselves, no manual needed.',
     },
   },
-] as const;
+];

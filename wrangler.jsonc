@@ -1,0 +1,14 @@
+// Configuração do Cloudflare Workers (site estático).
+// Com este arquivo, o `wrangler deploy` não tenta autoconfigurar o projeto:
+// ele roda o build abaixo e publica a pasta dist/.
+{
+  "name": "felipemsilva-portfolio",
+  "compatibility_date": "2026-10-01",
+  "build": {
+    "command": "npm run build"
+  },
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

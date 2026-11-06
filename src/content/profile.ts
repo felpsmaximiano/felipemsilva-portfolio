@@ -1,5 +1,12 @@
 import type { Localized, RichText } from './types';
 
+interface CoreSkill {
+  title: Localized<string>;
+  body: Localized<string>;
+  /** Domínio aproximado, de 0 a 100, usado na barra. */
+  level: number;
+}
+
 export const profile = {
   firstName: 'Felipe',
   fullName: 'Flavio Felipe Maximiano da Silva',
@@ -13,7 +20,7 @@ export const profile = {
   roles: {
     pt: ['Desenvolvedor Full Stack', 'Analista de Sistemas', 'React · TypeScript · Node.js'],
     en: ['Full Stack Developer', 'Systems Analyst', 'React · TypeScript · Node.js'],
-  } satisfies Localized<readonly string[]>,
+  } satisfies Localized<string[]>,
   lead: {
     pt: [
       'Desenvolvo ',
@@ -32,9 +39,9 @@ export const profile = {
   } satisfies Localized<RichText>,
   /** Ano em que comecei a trabalhar com tecnologia (suporte técnico, 07/2022). */
   careerStartYear: 2022,
-} as const;
+};
 
-export const coreSkills = [
+export const coreSkills: CoreSkill[] = [
   {
     title: { pt: 'Front-end', en: 'Front-end' },
     body: {
@@ -59,4 +66,4 @@ export const coreSkills = [
     },
     level: 82,
   },
-] as const satisfies ReadonlyArray<{ title: Localized<string>; body: Localized<string>; level: number }>;
+];

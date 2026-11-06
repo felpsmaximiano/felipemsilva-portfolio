@@ -45,10 +45,12 @@ export function Contact() {
           </a>
         </Reveal>
 
-        <Reveal as="ul" className="contact__availability">
-          {t.availability.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
+        <Reveal>
+          <ul className="contact__availability">
+            {t.availability.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </section>
