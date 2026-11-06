@@ -1,6 +1,6 @@
 # Portfólio · Felipe Maximiano
 
-Portfólio pessoal de **Flavio Felipe Maximiano da Silva**, desenvolvedor full stack e analista de sistemas.
+Portfólio pessoal, desenvolvedor full stack e analista de sistemas.
 
 A página abre como uma tela de editor de design: as partes do site são montadas, e logo depois um cursor
 com meu nome arruma o que ficou fora do lugar, troca uma cor, digita o texto de apresentação e publica as
